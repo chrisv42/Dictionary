@@ -18,6 +18,8 @@ public class Dictionary implements DictionaryADT {
         this.size = size;
     }
 
+    /* Using polynomial hashing */
+    
     private int hashCoding(String key){
         int i,c;
         int code = 0;
