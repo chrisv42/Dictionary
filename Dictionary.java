@@ -55,15 +55,19 @@ public class Dictionary implements DictionaryADT {
         
     }
 
-    public void remove (String config) throws DictionaryException{
+ public void remove (String config) throws DictionaryException{
         int index = hashCoding(config);
+        Node temp = dictionary[index];
         if (dictionary[index] == null) {
             throw new DictionaryException();
         }
-        if (dictionary[index].key == config){
-            dictionary[index].key = null;
-            dictionary[index].val = null;
-        }
+        while (temp != null) {
+            if (temp.key == config){
+                temp.key = null;
+                temp.val = null;
+            }
+            temp = temp.next;
+    }
     }
 
     public int get(String config){
